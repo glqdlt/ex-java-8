@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  * Created By iw.jhun
- * On 2018-04-13 , 오후 6:51
+ * On 2018-04-13
  */
 public class AppleFilterTest {
 

@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 /**
  * Created By iw.jhun
- * On 2018-04-13 , 오후 6:26
+ * On 2018-04-13
  */
 public class AppleHeavyWeightPredicateTest {
 

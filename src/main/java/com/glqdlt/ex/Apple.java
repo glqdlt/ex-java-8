@@ -2,7 +2,7 @@ package com.glqdlt.ex;
 
 /**
  * Created By iw.jhun
- * On 2018-04-13 , 오후 6:24
+ * On 2018-04-13
  */
 public class Apple {
 

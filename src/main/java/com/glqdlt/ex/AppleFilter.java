@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Created By iw.jhun
- * On 2018-04-13 , 오후 6:49
+ * On 2018-04-13
  */
 public class AppleFilter {
 

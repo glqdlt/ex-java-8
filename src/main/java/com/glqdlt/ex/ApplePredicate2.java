@@ -2,9 +2,9 @@ package com.glqdlt.ex;
 
 /**
  * Created By iw.jhun
- * On 2018-04-17 , 오전 11:34
+ * On 2018-04-17
  */
 @FunctionalInterface
-public interface Apple2Predicate<T> {
+public interface ApplePredicate2<T> {
     boolean test(T t);
 }
