@@ -4,6 +4,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.function.Function;
+import java.util.function.Predicate;
+
 import static org.junit.Assert.*;
 
 /**
@@ -26,5 +29,6 @@ public class AppleHeavyWeightPredicateTest {
     @Test
     public void isAppleOverWeight150() {
         assertEquals(true, this.appleHeavyWeightPredicate.test(this.apple));
+
     }
 }
