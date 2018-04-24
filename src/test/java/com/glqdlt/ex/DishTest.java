@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.*;
 
 /**
@@ -37,6 +38,12 @@ public class DishTest {
 
     @Test
     public void someTest() {
+        List<String> threeHighCaloricDishNames  = menu.stream().filter(d -> d.getCalories() > 500)
+                .map(Dish::getName)
+                .limit(100)
+                .collect(toList());
+
+        System.out.println(threeHighCaloricDishNames);
     }
 
 }
