@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.*;
@@ -32,13 +33,13 @@ public class DishTest {
 
     @Test
     public void echoMenu() {
-        menu.forEach( x -> System.out.println(x.toString()));
+        menu.forEach(x -> System.out.println(x.toString()));
 
     }
 
     @Test
     public void someTest() {
-        List<String> threeHighCaloricDishNames  = menu.stream().filter(d -> d.getCalories() > 500)
+        List<String> threeHighCaloricDishNames = menu.stream().filter(d -> d.getCalories() > 500)
                 .map(Dish::getName)
                 .limit(100)
                 .collect(toList());
@@ -47,13 +48,14 @@ public class DishTest {
     }
 
     @Test
-    public void watchLazy(){
+    public void watchLazy() {
         List<String> list = menu.stream()
-                .filter( x -> {
-                    System.out.println("filtter.."+x.getName());
-                    return x.getCalories() > 300;})
+                .filter(x -> {
+                    System.out.println("filtter.." + x.getName());
+                    return x.getCalories() > 300;
+                })
                 .map(x -> {
-                    System.out.println("map.."+x.getName());
+                    System.out.println("map.." + x.getName());
                     return x.getName();
                 })
                 .limit(30)
@@ -68,13 +70,14 @@ public class DishTest {
     }
 
     @Test
-    public void fianllyFunc(){
+    public void fianllyFunc() {
         long count = menu.stream()
-                .filter( x -> {
-                    System.out.println("filtter.."+x.getName());
-                    return x.getCalories() > 300;})
+                .filter(x -> {
+                    System.out.println("filtter.." + x.getName());
+                    return x.getCalories() > 300;
+                })
                 .map(x -> {
-                    System.out.println("map.."+x.getName());
+                    System.out.println("map.." + x.getName());
                     return x.getName();
                 })
                 .limit(30)
@@ -84,7 +87,7 @@ public class DishTest {
     }
 
     @Test
-    public void shouldStreamStringToInteger(){
+    public void shouldStreamStringToInteger() {
         List<Integer> stringLengths = menu.stream()
                 .map(x -> x.getName().length())
                 .collect(toList());
@@ -92,7 +95,7 @@ public class DishTest {
     }
 
     @Test
-    public void shouldStreamMapDouble(){
+    public void shouldStreamMapDouble() {
         List<String> lengthsToWord = menu.stream()
                 .map(x -> x.getName().length())
                 .map(x -> {
@@ -105,7 +108,7 @@ public class DishTest {
                             return "four";
                         case 12:
                             return "twelve";
-                        default :
+                        default:
                             return "no";
                     }
                 })
@@ -113,5 +116,27 @@ public class DishTest {
         lengthsToWord.forEach(System.out::println);
 
     }
+
+    @Test
+    public void flatMap() {
+        Stream<String> someWords = Arrays.stream(new String[]{"hello", "world", "hi", "wow"});
+        List<String> someWords2 = Arrays.asList("hello","hell","how");
+        List<String> splitWords = someWords
+                .map(x -> x.split(""))
+                .flatMap(Arrays::stream)
+//                .flatMap(x -> Arrays.stream(x))
+                .distinct()
+                .collect(toList());
+
+        splitWords.forEach(System.out::println);
+
+        System.out.println("\n");
+        List<String> splitWorkds2 = someWords2.stream().map(x -> x.split("")).flatMap(Arrays::stream)
+                .distinct()
+                .collect(toList());
+
+        splitWorkds2.forEach(System.out::println);
+    }
+
 
 }
