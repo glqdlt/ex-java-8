@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.IntStream;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * Created By iw.jhun
@@ -15,14 +18,16 @@ import java.util.Optional;
 public class ReduceTest {
 
 
-    List<Integer> numbers = new ArrayList<>();
+    List<Integer> numbers;
     List<Apple> someApples = new ArrayList<>();
 
     public ReduceTest() {
 
-        for (int i = 1; i <= 100; i++) {
-            numbers.add(i);
-        }
+//        for문이 싫었는 데 대체자가 나왔다! 바로 아래 코드이다.!
+        numbers= IntStream.rangeClosed(1, 100).boxed().collect(toList());
+//        for (int i = 1; i <= 100; i++) {
+//            numbers.add(i);
+//        }
 
         someApples.add(new Apple("red", 100));
         someApples.add(new Apple("green", 105));
