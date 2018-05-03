@@ -39,7 +39,7 @@ public class AppMainTest {
 
         list.forEach(System.out::println);
 
-//        list.sort((a,b) -> a.compareTo(b));
+//        numbers.sort((a,b) -> a.compareTo(b));
         list.sort(String::compareTo);
 
         list.forEach(System.out::println);
