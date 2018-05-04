@@ -1,19 +1,14 @@
 package com.glqdlt.ex;
 
-import com.sun.org.apache.xml.internal.serializer.ToStream;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toList;
-import static org.junit.Assert.*;
 
 /**
  * Created By iw.jhun
