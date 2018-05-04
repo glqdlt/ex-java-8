@@ -3,11 +3,16 @@ package com.glqdlt.ex;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -90,5 +95,23 @@ public class ReduceTest {
         Apple maxAppleWeight = someApples.stream().max(Comparator.comparingInt(x -> x.getWeight())).get();
         System.out.println(maxAppleWeight.getColor()+","+maxAppleWeight.getWeight());
     }
+
+
+//    @Test
+//    public void shouldReadWrappingZoolgoonCouponDetailXmlFile() throws IOException {
+//        ZoolgoonCoupon data = xmlMapper.readValue(getXmlMessage().get(), ZoolgoonCoupon.class);
+//        log.info(data.getTransectionId());
+//    }
+//
+//    private Optional<String> getXmlMessage() {
+////        auto closeable
+//        try (Stream<String> lines = Files.lines(Paths.get(ClassLoader.getSystemResource("zoolgoon-coupon-detail.xml").toURI()))) {
+//            return Optional.of(lines.reduce("", (x,y) -> x+y));
+//        } catch (URISyntaxException | IOException e) {
+//            e.printStackTrace();
+//        }
+//        return Optional.empty();
+//    }
+
 
 }
