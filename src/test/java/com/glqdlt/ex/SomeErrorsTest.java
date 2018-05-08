@@ -18,6 +18,7 @@ import static java.util.stream.Collectors.toList;
  */
 public class SomeErrorsTest {
 
+
     List<SomeErrorMessage> list;
 
     public SomeErrorsTest() {
