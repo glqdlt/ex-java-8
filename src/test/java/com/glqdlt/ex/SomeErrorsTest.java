@@ -27,22 +27,31 @@ public class SomeErrorsTest {
     }
 
     @Test
-    public void shouldFilltedErrorCode() {
+    public void shouldFilltedOnlyErrorCodeErrorMessage() {
 
-        List<SomeErrorMessage> list = IntStream.rangeClosed(0, 1000000).boxed().map(x -> {
-            String a1 = "";
-            String a2 = "";
-            if (x % 7 == 0) {
-                a1 = "404";
-            } else {
-                a1 = a1 + x;
-            }
-            a2 = a2 + x;
-            return new SomeErrorMessage(a1, a2);
-        }).collect(toList());
+        List<SomeErrorMessage> list = IntStream.rangeClosed(0, 100000)
+                .boxed()
+                .map(x -> {
+                    String a1 = "";
+                    String a2 = "";
+                    if (x % 7 == 0) {
+                        a1 = "404";
+                    } else if (x % 9 == 0) {
+                        a1 = "500";
+                    } else {
+                        a1 = a1 + x;
+                    }
+                    a2 = a2 + x;
+                    return new SomeErrorMessage(a1, a2);
+                })
+                .collect(toList());
 
+//        여기서 AllMatch로 할 경우에 SomeErros와 다 일치하는 가를 비교하기 때문에 하나라도 false가 떨어지게 되면 안되어서.. 원하는 결과가 나오질 않는다.
+//        난 이 list의 어떠한 객체의 code가 하나라도 맞는 놈에 대해서 필터링 하고 싶은 것이므로, anyMatch를 쓴다.
 
-        List<SomeErrorMessage> matchedErros = list.stream().filter(x -> Arrays.stream(SomeErrors.values()).anyMatch(y -> y.getCode().equals(x.getCode()))).collect(toList());
+        List<SomeErrorMessage> matchedErros = list.stream()
+                .filter(x -> Arrays.stream(SomeErrors.values()).anyMatch(y -> y.getCode().equals(x.getCode())))
+                .collect(toList());
 
         matchedErros.forEach(x -> System.out.println(x.toString()));
 
