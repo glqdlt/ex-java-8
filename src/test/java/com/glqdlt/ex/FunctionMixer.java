@@ -31,4 +31,10 @@ public class FunctionMixer {
 
 
     }
+
+    @Test
+    public void someFunction(){
+        Function<Integer,Integer> f = x -> x +1;
+        System.out.println(f.apply(2));
+    }
 }

@@ -1,7 +1,5 @@
 package com.glqdlt.ex;
 
-import jdk.nashorn.internal.runtime.regexp.joni.exception.ErrorMessages;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -17,6 +15,8 @@ import static java.util.stream.Collectors.toList;
  * On 2018-05-08
  */
 public class SomeErrorsTest {
+
+
 
     List<SomeErrorMessage> list;
 
